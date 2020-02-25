@@ -7,7 +7,21 @@ const /** Obtengo los elementos del DOM */
 
 /** Valida si un campo esta vacio */
 const isEmpty = str => ! str .trim() .length;   // true/false
- 
+
+/** Mostrar Alerta */
+const showAlert = () => {
+    const $alert = document .createElement( 'ion-alert' );
+
+    $alert .header = 'Invalid data';                    // Agrega texto a la cabecera
+    $alert .subHeader = 'Please verify your inputs';    // Agrega mensaje al sub titulo del elemento alert
+    $alert .message = 'Incorrect Name or Price';        // Agrega Mensaje del Alert
+    $alert .buttons = [ 'Ok' ];                         // Indica los botones que se desean mostrar
+
+    document .querySelector('ion-app').appendChild( $alert );           // Agrega el elemento al DOM
+    
+    return $alert .present();                           // Lanza el Alert
+}
+
 /** Eventos */
 $btnClear .addEventListener( 'click', () => clearForm() );
 $btnSave .addEventListener( 'click', () => {
@@ -15,6 +29,7 @@ $btnSave .addEventListener( 'click', () => {
     /** Valida campos */
     if( isEmpty( $productName .value ) || isEmpty( $productPrice .value ) || $productPrice .value <= 0 ) {
         console .log( 'The data is not valid' );
+        showAlert();
         return;
     }
 
