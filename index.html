@@ -14,7 +14,7 @@
         <!-- Código Ionic -->
         <ion-app>
             <ion-header>
-                <ion-toolbar>
+                <ion-toolbar color="primary">
                     <ion-buttons slot="start">
                         <ion-button>
                             <ion-icon name="logo-ionic"></ion-icon>
@@ -36,24 +36,25 @@
                         <ion-col>
                             
                             <ion-card>
-                                
-                                <ion-card-header>
+                                <ion-card-header color="secondary">
                                     <ion-card-title>New Product</ion-card-title>
                                 </ion-card-header>
-                                
+
                                 <ion-card-content>
-                                    <ion-item>
-                                        <ion-label>Product Name</ion-label>
+                                    <ion-item class="ion-margin-vertical">
+                                        <ion-label position="floating">Product Name</ion-label>
                                         <ion-input type="text"></ion-input>
                                     </ion-item>
                                     <ion-item>
-                                        <ion-label>Product Price</ion-label>
+                                        <ion-label position="floating">Product Price</ion-label>
                                         <ion-input type="number"></ion-input>
                                     </ion-item>
                                     <ion-button>
+                                        <ion-icon name="add-circle" slot="start"></ion-icon>
                                         Save
                                     </ion-button>
-                                    <ion-button>
+                                    <ion-button color="danger" fill="outline">
+                                        <ion-icon name="trash" slot="start"></ion-icon>
                                         Clear
                                     </ion-button>
                                 </ion-card-content>
@@ -63,6 +64,7 @@
                     </ion-row>
                 </ion-grid>
             </ion-content>
+
         </ion-app>
 
         <!-- CDN - Scripts Ionic -->
