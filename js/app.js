@@ -1,9 +1,12 @@
+let total = 0;
+
 const /** Obtengo los elementos del DOM */
     $productName  = document .querySelector( '#product-name' ),
     $productPrice = document .querySelector( '#product-price' ),
     $btnSave      = document .querySelector( '#btn-save' ),
     $btnClear     = document .querySelector( '#btn-clear' ),
-    $productList  = document .querySelector( '#product-list' );
+    $productList  = document .querySelector( '#product-list' ),
+    $total        = document .querySelector( '#total' );
 
 /** Valida si un campo esta vacio */
 const isEmpty = str => ! str .trim() .length;   // true/false
@@ -39,6 +42,11 @@ $btnSave .addEventListener( 'click', () => {
     }
     console .log( 'Producto', product );
     createNewProduct( product );
+
+    /** Suma el total de los productos ingresados */
+    total += +product .price;       // El signo + que antecede a la variable hace que si la variable es una cadena esta se convierta en un valor numerico
+    $total .textContent = total;    // Agrega al DOM
+    
     clearForm();
 
 });
