@@ -5,9 +5,19 @@ const /** Obtengo los elementos del DOM */
     $btnClear     = document .querySelector( '#btn-clear' ),
     $productList  = document .querySelector( '#product-list' );
 
+/** Valida si un campo esta vacio */
+const isEmpty = str => ! str .trim() .length;   // true/false
+ 
 /** Eventos */
 $btnClear .addEventListener( 'click', () => clearForm() );
 $btnSave .addEventListener( 'click', () => {
+
+    /** Valida campos */
+    if( isEmpty( $productName .value ) || isEmpty( $productPrice .value ) || $productPrice .value <= 0 ) {
+        console .log( 'The data is not valid' );
+        return;
+    }
+
     const product = {
         name: $productName .value,
         price: Number( $productPrice .value )
