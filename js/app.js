@@ -6,6 +6,7 @@ const /** Obtengo los elementos del DOM */
     $productList  = document .querySelector( '#product-list' );
 
 /** Eventos */
+$btnClear .addEventListener( 'click', () => clearForm() );
 $btnSave .addEventListener( 'click', () => {
     const product = {
         name: $productName .value,
@@ -13,6 +14,7 @@ $btnSave .addEventListener( 'click', () => {
     }
     console .log( 'Producto', product );
     createNewProduct( product );
+    clearForm();
 
 });
 
@@ -26,4 +28,10 @@ const createNewProduct = ( product ) => {
     $ionCard .appendChild( $ionCardContent );       // Insertamos elemento dentro de otro elemento
     $productList .appendChild( $ionCard );          // Inserta elemento al DOM
 
+}
+
+/** Limpia campos del Formulario */
+const clearForm = () => {
+    $productName .value = '';
+    $productPrice .value = '';
 }
